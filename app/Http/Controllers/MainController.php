@@ -35,7 +35,7 @@ class MainController extends Controller
     public function sku($categoryCode, $productCode, Sku $sku)
     {
         if($sku->product->category->code != $categoryCode){
-            abort(404, 'Category not found!!!333');
+            abort(404, 'Category not found!!!');
         }
         if($sku->product->code != $productCode){
             abort(404, 'Product not found');
