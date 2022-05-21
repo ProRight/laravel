@@ -9,7 +9,7 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'currency_id', 'sum'];
+    protected $fillable = ['user_id', 'currency_id', 'sum', 'coupon_id'];
 
     // protected $withCount = ['category'];
 
@@ -26,6 +26,11 @@ class Order extends Model
             $sum += $product->getSumProducts();
         }
         return $sum;
+    }
+
+    public function coupon()
+    {
+        return $this->belongsTo(Coupon::class);
     }
 
     public function getFullSum()
